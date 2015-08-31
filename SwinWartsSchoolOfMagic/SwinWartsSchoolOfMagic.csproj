@@ -41,6 +41,8 @@
     <Compile Include="SpellKind.cs" />
     <Compile Include="Spell.cs" />
     <Compile Include="SpellTests.cs" />
+    <Compile Include="SpellBookTests.cs" />
+    <Compile Include="SpellBook.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
