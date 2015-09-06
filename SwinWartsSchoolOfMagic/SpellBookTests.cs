@@ -41,14 +41,22 @@ namespace SwinWartsSchoolOfMagic
 			Assert.AreEqual (2, myBook.SpellCount);
 		}
 
+		/// <summary>
+		/// Tests the indexer used to access spells in the spell book.
+		/// Creates a new SpellBook and a new Spell and adds the spell to the SpellBook.
+		/// Then tests whether the local Spell and the Spell contained in the Spellbook
+		/// are equal using the indexer.
+		/// </summary>
 		[Test ()]
 		public void TestFetchSpell ()
 		{
+			
 			SpellBook myBook = new SpellBook ();
+			Spell testSpell = new Spell ("Test spell", SpellKind.Heal);
+			myBook.AddSpell (testSpell);
 
-			myBook[0] = new Spell ("Sean's Teleporter", SpellKind.Teleport);
+			Assert.AreEqual (testSpell, myBook [0]);
 
-			StringAssert.IsMatch ("Sean's Teleporter", myBook [0].Name);
 		}
 	}
 }
