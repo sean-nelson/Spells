@@ -8,10 +8,9 @@ namespace SwinWartsSchoolOfMagic
 	/// There are a few different types of spells, each
 	/// with their own effects.
 	/// </summary>
-	public class Spell
+	public abstract class Spell
 	{
 		private string _name;
-		private SpellKind _kind;
 
 		/// <summary>
 		/// The Name property represents the spell's name.
@@ -29,28 +28,16 @@ namespace SwinWartsSchoolOfMagic
 			}
 		}
 
-		/// <summary>
-		/// The Kind property represents the spell's kind.
-		/// One of three kinds: Teleport, Heal or Invisibilty.
-		/// </summary>
-		/// <value>The Kind property gets the value of the SpellKind field, _kind.</value>
-		public SpellKind Kind
-		{
-			get 
-			{
-				return _kind;
-			}
-		}
+		public Spell () : this ("Teleport Spell") {}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SwinWartsSchoolOfMagic.Spell"/> class.
 		/// </summary>
 		/// <param name="name">Used to indicate the spell's Name.</param>
 		/// <param name="kind">Used to indicate the spell's Kind.</param>
-		public Spell (string name, SpellKind kind)
+		public Spell (string name)
 		{
 			_name = name;
-			_kind = kind;
 		}
 
 		/// <summary>
@@ -59,19 +46,6 @@ namespace SwinWartsSchoolOfMagic
 		/// <returns>
 		/// Returns a string.
 		/// </returns>
-		public string Cast()
-		{
-
-			switch (_kind) 
-			{
-			case SpellKind.Teleport:
-				return "Poof... you appear somewhere else";
-			case SpellKind.Heal:
-				return "Ahhh... you feel better";
-			case SpellKind.Invisibilty:
-				return "Zippp... where am I?";
-			default: return "You are a great wizard, even I don't know what that spell is!";
-			}
-		}
+		public abstract string Cast();
 	}
 }

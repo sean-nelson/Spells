@@ -14,8 +14,8 @@ namespace SwinWartsSchoolOfMagic
 
 			Assert.AreEqual (0, count, "Spell Book should start with 0 spells");
 
-			myBook.AddSpell (new Spell ("Sean's Teleporter", SpellKind.Teleport));
-			myBook.AddSpell (new Spell ("Tom's Healer", SpellKind.Heal));
+			myBook.AddSpell (new Teleport ("Sean's Teleporter"));
+			myBook.AddSpell (new Heal ("Tom's Healer"));
 			count = myBook.SpellCount;
 
 			Assert.AreEqual (2, count, "Adding two shapes should increase the count to 2");
@@ -26,9 +26,9 @@ namespace SwinWartsSchoolOfMagic
 		{
 			SpellBook myBook = new SpellBook ();
 
-			Spell mySpell1 = new Spell ("Sean's Teleporter", SpellKind.Teleport);
-			Spell mySpell2 = new Spell ("Tom's Healer", SpellKind.Heal);
-			Spell mySpell3 = new Spell ("Ian's Invisibilty", SpellKind.Invisibilty);
+			Spell mySpell1 = new Teleport ("Sean's Teleporter");
+			Spell mySpell2 = new Heal ("Tom's Healer");
+			Spell mySpell3 = new Invisibilty ("Ian's Invisibilty");
 
 			myBook.AddSpell (mySpell1);
 			myBook.AddSpell (mySpell2);
@@ -52,7 +52,7 @@ namespace SwinWartsSchoolOfMagic
 		{
 			
 			SpellBook myBook = new SpellBook ();
-			Spell testSpell = new Spell ("Test spell", SpellKind.Heal);
+			Spell testSpell = new Heal ("Test spell");
 			myBook.AddSpell (testSpell);
 
 			Assert.AreEqual (testSpell, myBook [0]);

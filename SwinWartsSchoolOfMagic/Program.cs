@@ -6,23 +6,25 @@ namespace SwinWartsSchoolOfMagic
 	{
 		public static void Main (string[] args)
 		{
-			Spell[] _spells = new Spell[5];
+			SpellBook mySpellBook = new SpellBook();
 
-			_spells [0] = new Spell ("Mitch's mighty mover", SpellKind.Teleport);
-			_spells [1] = new Spell ("Paul's potent poultice", SpellKind.Heal);
-			_spells [2] = new Spell ("David's dashing disappearance", SpellKind.Invisibilty);
-			_spells [3] = new Spell ("Stan's stunning shifter", SpellKind.Teleport);
-			_spells [4] = new Spell ("Lachlan's lavish longevity", SpellKind.Heal);
+			mySpellBook.AddSpell (new Teleport ("Mitch's mighty mover"));
+			mySpellBook.AddSpell (new Heal ("Paul's potent poultice"));
+			mySpellBook.AddSpell (new Invisibilty ("David's dashing disappearance"));
+			mySpellBook.AddSpell (new Teleport ("Stan's stunning shifter"));
+			mySpellBook.AddSpell (new Heal ("Lachlan's lavish longevity"));
 
-			CastAll (_spells);
+			CastAll (mySpellBook);
+
+			Console.WriteLine (mySpellBook [2].Name + " - " + mySpellBook [2].Cast ());
 
 			Console.ReadLine ();
 		}
 
-		public static void CastAll (Spell[] spells)
+		public static void CastAll (SpellBook mySpellBook)
 		{
-			foreach(Spell s in spells) {
-				Console.WriteLine (s.Name + " - " + s.Cast());
+			for (int i = 0; i < mySpellBook.SpellCount; i++) {
+				Console.WriteLine (mySpellBook[i].Name + " - " + mySpellBook[i].Cast());
 			}
 		}
 	}
