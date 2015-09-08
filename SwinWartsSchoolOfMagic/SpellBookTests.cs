@@ -3,9 +3,15 @@ using System;
 
 namespace SwinWartsSchoolOfMagic
 {
+	/// <summary>
+	/// Provides unit tests to test the functionality of the SpellBook class.
+	/// </summary>
 	[TestFixture ()]
 	public class SpellBookTests
 	{
+		/// <summary>
+		/// Tests the add spell method.
+		/// </summary>
 		[Test ()]
 		public void TestAddSpell ()
 		{
@@ -21,6 +27,9 @@ namespace SwinWartsSchoolOfMagic
 			Assert.AreEqual (2, count, "Adding two shapes should increase the count to 2");
 		}
 
+		/// <summary>
+		/// Tests the remove spell method.
+		/// </summary>
 		[Test ()]
 		public void TestRemoveSpell ()
 		{
